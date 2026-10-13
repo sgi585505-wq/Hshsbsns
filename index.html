@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0b">
+<title>SYSTEM RIYA</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 24px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: radial-gradient(ellipse at top, #38300b, #11110c 48%, #050505);
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 440px;
+  padding: 30px 23px 25px;
+  text-align: center;
+  background: linear-gradient(145deg, #191919, #0b0b0b);
+  border: 1px solid #51451d;
+  border-radius: 30px;
+  box-shadow: 0 15px 65px #000b;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffe04a, transparent);
+}
+
+.top-label {
+  color: #aaa;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin: 8px 0 24px;
+}
+
+.dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: #ffcf00;
+  box-shadow: 0 0 12px #ffcf00;
+}
+
+.profile {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 26px;
+  padding: 7px;
+  border: 4px solid #e9c52e;
+  border-radius: 50%;
+  background: #161616;
+  box-shadow: 0 0 30px #ffcf0020;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 50%;
+}
+
+h1 {
+  font-size: clamp(30px, 8vw, 38px);
+  margin: 12px 0 15px;
+  letter-spacing: -1px;
+}
+
+.description {
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 12px 18px;
+  margin-bottom: 32px;
+  border: 1px solid #756323;
+  border-radius: 40px;
+  color: #ffdc58;
+  background: #ffcf0010;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.download-btn {
+  width: 100%;
+  min-height: 85px;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  border-radius: 24px;
+  color: #111;
+  background: linear-gradient(110deg, #ffdf00, #ffb900);
+  box-shadow: 0 10px 35px #ffc50030;
+  text-decoration: none;
+  font-size: clamp(18px, 5vw, 25px);
+  font-weight: 900;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px #ffc50050;
+}
+
+.download-btn:active {
+  transform: scale(.98);
+}
+
+.download-btn svg {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.arrow {
+  font-size: 28px;
+}
+
+.status {
+  margin: 24px 0 30px;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.ready {
+  color: #ffdc58;
+  font-weight: bold;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  color: #999;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #333;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.feature {
+  min-height: 110px;
+  padding: 18px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #303030;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #252525, #171717);
+}
+
+.feature strong {
+  font-size: clamp(17px, 4.5vw, 22px);
+}
+
+.feature span {
+  color: #aaa;
+  font-size: 10px;
+  letter-spacing: .7px;
+}
+
+.footer {
+  margin-top: 26px;
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 25px 15px;
+  }
+
+  .profile {
+    width: 170px;
+    height: 170px;
+  }
+
+  .feature span {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-btn {
+    transition: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+  <div class="top-label">
+    <span class="dot"></span>SYSTEM RIYA
+  </div>
+
+  <!-- PROFILE PHOTO -->
+  <div class="profile">
+    <img
+      src="1000368171.jpg"
+      alt="SYSTEM RIYA"
+    >
+  </div>
+
+  <h1>SYSTEM RIYA</h1>
+
+  <p class="description">
+    Welcome to System Riya.
+    Download the app using the button below.
+  </p>
+
+  <div class="badge">
+    ★ &nbsp; OFFICIAL PLATFORM
+  </div>
+
+  <!-- DOWNLOAD BUTTON WITH YOUR LINK -->
+  <a
+    class="download-btn"
+    href="https://down.v7nexa.net/#/?invite=oTBYib"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Download Now"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 3v12"></path>
+      <path d="m7 10 5 5 5-5"></path>
+      <path d="M5 17v4h14v-4"></path>
+    </svg>
+
+    DOWNLOAD NOW
+    <span class="arrow">→</span>
+  </a>
+
+  <div class="status">
+    Status: <span class="ready">Ready</span>
+    &nbsp;·&nbsp; Download link available
+  </div>
+
+  <div class="separator">SYSTEM RIYA</div>
+
+  <section class="features">
+
+    <div class="feature">
+      <strong>24/7</strong>
+      <span>SUPPORT</span>
+    </div>
+
+    <div class="feature">
+      <strong>Easy</strong>
+      <span>ACCESS</span>
+    </div>
+
+    <div class="feature">
+      <strong>1-TAP</strong>
+      <span>DOWNLOAD</span>
+    </div>
+
+  </section>
+
+  <div class="footer">
+    SYSTEM RIYA &nbsp; • &nbsp; OFFICIAL PAGE
+  </div>
+
+</main>
+
+</body>
+  </html>
